@@ -6,11 +6,8 @@ Make sure there is only one class column, and the remaining columns are attribut
 
 import os
 
-os.environ["PATH"] += os.pathsep + 'C:\Program Files (x86)\Graphviz2.38/bin/'
-
 # imports
 from sklearn import tree
-from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import graphviz
 
@@ -53,15 +50,12 @@ class PrintDT:
 
 
 if __name__ == '__main__':
+    os.environ["PATH"] += os.pathsep + 'C:\Program Files\Graphviz/bin'
     dataset_name = 'iris_dataset.csv'
     class_column_name = 'class'
 
-    output_filename = 'CWUTREE2'
+    output_filename = 'dt_graph'
 
     a = PrintDT(dataset_name, class_column_name)
     a.get_data_and_labels()
     a.build_tree(output_filename)
-
-    """
-    tree saves to file called output_filename.pdf
-    """
